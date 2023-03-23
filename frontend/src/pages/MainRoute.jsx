@@ -56,13 +56,13 @@ const MainRoute = () => {
         <Route path="/reset" element={<Reset />}></Route>
 
         {/* Private Route */}
-        {/* <Route path="/password" element={<Password />}></Route> */}
-        <Route path="/password" element={<ProtectRoute><Password /></ProtectRoute>}></Route>
+        <Route path="/password" element={<Password />}></Route>
+        {/* <Route path="/password" element={<ProtectRoute><Password /></ProtectRoute>}></Route> */}
 
 
         {/* Protect Route */}
-        {/* <Route path="/profile" element={<Profile />}></Route> */}
-        <Route path="/profile" element={<AuthorizeUser><Profile /></AuthorizeUser>}></Route>
+        <Route path="/profile" element={<Profile />}></Route>
+        {/* <Route path="/profile" element={<AuthorizeUser><Profile /></AuthorizeUser>}></Route> */}
 
         
         <Route path="/deliverypage" element={<DeliveryPage />}></Route>
