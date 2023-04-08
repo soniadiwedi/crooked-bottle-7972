@@ -24,6 +24,10 @@ import ElectronicsPage from "./Electronics/ElectronicsPage";
 import FashionPage from "./Fashion/FashionPage";
 import FurniturePage from "./Furniture/FurniturePage";
 import GroceryPage from "./Grocery/GroceryPage";
+import Signup from "./New_Login_function/Signup";
+import Login from "./New_Login_function/Login";
+import PrivatrRoutes from "../components/PrivateRoutes";
+import SingleAppliances from "./Appliances/SingleAppliances";
 
 
 
@@ -32,24 +36,23 @@ const MainRoute = () => {
     <div>
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
-        <Route path="/mobile-page" element={<MobilePage />}></Route>
+        {/* <Route path="/mobile-page" element={<MobilePage />}></Route> */}
         <Route path="/appliances-page" element={ <AppliancesPage /> }></Route>
-        <Route path="/electronics-page" element={ <ElectronicsPage /> }></Route>
+        {/* <Route path="/electronics-page" element={ <ElectronicsPage /> }></Route>
         <Route path="/Fashion-Page" element={ <FashionPage /> }></Route>
         <Route path="/Grocery-page" element={ <GroceryPage/> }></Route>
         <Route path="/Furniture-Page" element={ <FurniturePage /> }></Route>
-        
-        <Route path="/single/:id" element={<SingleMobile />} />
+         */}
+        <Route path="/product/single/:id" element={<SingleAppliances />} />
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/admin" element={<DashboardMain />} />
         <Route path="/product-list" element={<ProductList />} />
         <Route path="/add-product" element={<AdminAddProduct />}></Route>
 
         {/* Vikash Route */}
-        <Route path="/user_name" element={<Username />}></Route>
-        <Route path="/password" element={<Password />}></Route>
-        <Route path="/register" element={<Register />}></Route>
-        <Route path="/recovery" element={<Recovery />}></Route>
+        <Route path="/signup" element={< Signup/>}></Route>
+        <Route path="/login" element={< Login/>}></Route>
+        
 
         <Route path="/reset" element={<Reset />}></Route>
         <Route path="/deliverypage" element={<DeliveryPage />}></Route>

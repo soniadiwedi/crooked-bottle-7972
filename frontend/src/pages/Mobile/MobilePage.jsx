@@ -41,6 +41,8 @@ export default function MobilePage() {
         }).map((el)=>{
             return <div key={el.id} className="col-md-3 col-12">
            <MobileCard {...el}/>
+           
+
             </div>
            
         })}

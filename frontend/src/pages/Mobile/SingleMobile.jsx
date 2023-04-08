@@ -19,8 +19,9 @@ export default function SingleMobile() {
   }, shallowEqual);
   const params = useParams();
   const getsingledata = (id) => {
+  
     axios
-      .get(`https://light-ant-sock.cyclic.app/products/${id}`)
+      .get(`http://localhost:3300/product/single/${id}`)
       .then((res) => {
         console.log(res);
         setdata(res.data);
@@ -33,7 +34,7 @@ export default function SingleMobile() {
   useEffect(() => {
     getsingledata(params.id);
   }, [params.id]);
- 
+ console.log("duu",data);
   return (
     <Box >
       {

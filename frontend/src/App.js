@@ -3,6 +3,7 @@ import MainRoute from "./pages/MainRoute";
 import Navbar from "./components/Navbar";
 import Footer from './components/Footer';
 import Header from "./components/LandingPage/Header/Header";
+import PrivatrRoutes from "./components/PrivateRoutes";
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
 
       <MainRoute />
       <Footer/>
-
+   
     </div>
   );
 }

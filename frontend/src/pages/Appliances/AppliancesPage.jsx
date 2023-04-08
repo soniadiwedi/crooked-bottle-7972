@@ -14,7 +14,7 @@ import AppliancesCard from "./AppliancesCard";
 
 export default function AppliancesPage() {
   const data=useSelector((store)=>store.productReducer.products)
-    console.log(data)
+   console.log("dataaa",data);
     const [searchParams,setSearchParams]= useSearchParams();
     const Cat=(searchParams.getAll('category'))
     const dispatch=useDispatch()
@@ -40,37 +40,19 @@ export default function AppliancesPage() {
             <UpperBar />
           </div>
           <Component className="row">
-          {data.length>0 && data.filter((el)=>{
-            if(Cat.length>0){
-                return Cat.includes(el.category);
-            }else{
-                return el;
-            }
-        }).map((el)=>{
-            return <div key={el.id} className="col-md-3 col-12">
-           <AppliancesCard {...el}/>
-            </div>
-           
-        })}
+              {
+              data.length>0 &&  data.map((el)=>{
+                  return <div key={el.id} className="col-md-3 col-12">
+        <AppliancesCard {...el}/>
+                  </div> 
+                })
+              }
 
-
-            {/* {data.length > 0 &&
-              data?.map((el, i) => {
-                if (i < 15) {
-                  return (
-                    <div key={el.id} className="col-md-3 col-12">
-                      <MobileCard {...el} />
-                    </div>
-                  );
-                } else {
-                  return false;
-                }
-              })} */}
           </Component>
         </div>
       </div>
     </div>
 
-    // </div>
+    
   );
 }

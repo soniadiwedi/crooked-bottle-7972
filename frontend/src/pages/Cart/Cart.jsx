@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getAllCart, removeItemCart } from "../../Redux/CartReducer/cartAction";
 
 const Cart = () => {
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -19,16 +20,16 @@ const Cart = () => {
 
   let totalPrice = Number(0);
   for (let i = 0; i < allCart.length; i++) {
-    totalPrice += allCart[i].price;
+    totalPrice += +allCart[i].price;
   }
 
-  let subtotal = Number(totalPrice) + Number(delivery);
+  let subtotal = (+totalPrice) + (+delivery);
 
   useEffect(() => {
     dispatch(getAllCart());
     allCart.map((item) => {
-      setPrice(item.price);
-      setTotal(item.discountedPrice);
+      setPrice(Number(item.price));
+      setTotal(Number(item.discountedPrice));
     });
   }, []);
 
@@ -57,6 +58,11 @@ const Cart = () => {
       });
   };
 
+
+
+  function IncDecproduct(val){
+console.log(val)
+  }
   return (
     <>
       {allCart.length === 0 ? (
@@ -106,6 +112,7 @@ const Cart = () => {
                                   <input
                                     type="button"
                                     value="-"
+                                    onClick={()=>IncDecproduct(el)}
                                     className="button-minus"
                                     data-field="quantity"
                                   />
@@ -120,6 +127,7 @@ const Cart = () => {
                                   <input
                                     type="button"
                                     value="+"
+                                   onClick={()=>IncDecproduct(el)}
                                     className="button-plus"
                                     data-field="quantity"
                                   />
@@ -143,12 +151,14 @@ const Cart = () => {
                   </div>
                 </div>
                 <div className="col-12 text-end mt-3">
+                 <Link to="/deliverypage">
                   <button
                     className="btn btn-warning w-25 p-3"
                     onClick={() => buyNow()}
                   >
                     Place Order
                   </button>
+                  </Link>
                 </div>
               </div>
             </div>
