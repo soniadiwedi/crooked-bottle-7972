@@ -14,7 +14,6 @@ import {
     useColorModeValue,
     Link,
   } from '@chakra-ui/react';
-  import axios from "axios"
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
   import { Link as Navlink} from 'react-router-dom';

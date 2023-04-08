@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { getAllCart, removeItemCart } from "../../Redux/CartReducer/cartAction";
+import Header from "../../components/LandingPage/Header/Header";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 const Cart = () => {
 
@@ -20,7 +23,7 @@ const Cart = () => {
 
   let totalPrice = Number(0);
   for (let i = 0; i < allCart.length; i++) {
-    totalPrice += +allCart[i].price;
+    totalPrice += Number(allCart[i].price);
   }
 
   let subtotal = (+totalPrice) + (+delivery);
@@ -41,21 +44,21 @@ const Cart = () => {
   };
   const buyNow = async () => {
     console.log("payment");
+    navigate("/payment");
+    // const paymentData = {
+    //   purpose: "Test payment",
+    //   amount: 10,
+    // };
 
-    const paymentData = {
-      purpose: "Test payment",
-      amount: 10,
-    };
-
-    axios
-      .post("https://instamojo-test-1s1j.vercel.app/pay", paymentData)
-      .then((res) => {
-        console.log("res", res.data);
-        // window.location.href = res.data;
-      })
-      .catch((err) => {
-        console.log("payment error", err);
-      });
+    // axios
+    //   .post("https://instamojo-test-1s1j.vercel.app/pay", paymentData)
+    //   .then((res) => {
+    //     console.log("res", res.data);
+    //     // window.location.href = res.data;
+    //   })
+    //   .catch((err) => {
+    //     console.log("payment error", err);
+    //   });
   };
 
 
@@ -65,6 +68,8 @@ console.log(val)
   }
   return (
     <>
+      <Header />
+      <Navbar />
       {allCart.length === 0 ? (
         <div className="mx-auto col-8">
           <div className="card mt-5 mb-5">
@@ -197,6 +202,7 @@ console.log(val)
           </div>
         </div>
       )}
+      <Footer />
     </>
   );
 };

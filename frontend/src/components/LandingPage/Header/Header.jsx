@@ -24,9 +24,12 @@ const Header = () => {
 
   return (
     <div className="header">
+ fp05_295_day_dummy
       <div className="header_logo">
-       <Link to="/"><img src={logo} alt="logo"></img></Link> 
+      <Link to="/"><img src={logo} alt="logo"></img></Link>
+        
       </div>
+
       <div className="header_search">
         <input type="text" placeholder="Search for products, brands and more" />
         <SearchIcon />
@@ -34,10 +37,7 @@ const Header = () => {
 
       <div className="header_login">
         <Menu>
-          <MenuButton _hover={"curser:pointer "}>
-           <Link to="/login">Login</Link>
-            {/* <LoginDialog/> */}
-          </MenuButton> 
+          <MenuButton _hover={"curser:pointer "}>Log in</MenuButton>
           <MenuList color={"black"} fontSize={"small"}>
             <MenuList>New customer? <span></span><Link to="/signup">Sign Up</Link></MenuList>
            
@@ -53,7 +53,7 @@ const Header = () => {
       </div>
       <div className="header_admin">
         <Link to="/admin">
-          <p>Become A Seller</p>
+          <p>Admin</p>
         </Link>
       </div>
       <div className="header_more">

@@ -4,7 +4,8 @@ import axios from "axios";
 import { shallowEqual, useSelector } from "react-redux";
 import { Box, Text } from "@chakra-ui/react";
 import SingleMobileCard from "./SingleAppliancesCard";
-import {styled} from "@mui/material"
+import { styled } from "@mui/material";
+
 import SingleAppliancesCard from "./SingleAppliancesCard";
 ///////////////////////////////////////////
 const Component=styled(Box)`

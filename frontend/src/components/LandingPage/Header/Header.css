@@ -17,6 +17,8 @@
 .header_logo img{
     width: 150px;
     object-fit: contain;
+    cursor: pointer;
+
   }
   .header_search{
         background-color: white;

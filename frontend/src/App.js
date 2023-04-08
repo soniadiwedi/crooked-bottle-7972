@@ -9,9 +9,6 @@ import PrivatrRoutes from "./components/PrivateRoutes";
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <Navbar />
-
       <MainRoute />
       <Footer/>
    
