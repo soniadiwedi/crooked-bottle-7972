@@ -29,7 +29,7 @@ export const sortdataDes=()=>{
 export const getProductData= (dispatch) => {
   dispatch(getRequestMovie());
   axios
-    .get(`https://light-ant-sock.cyclic.app/products`)
+    .get(`http://localhost:8080/products`)
     .then((res) => {
        console.log("redux",res.data);
       dispatch(getSuccessMovie(res.data));

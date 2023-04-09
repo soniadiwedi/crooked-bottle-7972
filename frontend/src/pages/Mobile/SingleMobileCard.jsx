@@ -1,19 +1,20 @@
 import { Box, Button, Heading, Image, Text, Icon } from "@chakra-ui/react";
 import { styled } from "@mui/material";
 import { FaCartPlus, FaRupeeSign } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import Header from "../../components/LandingPage/Header/Header";
+import { addTocart } from "../../Redux/CartReducer/cartAction";
 export default function SingleMobileCard(data) {
   const navigate = useNavigate();
-
+  const dispatch= useDispatch()
   const allCartItem = useSelector((store) => {
     return store.CartReducer.cartItem;
   });
-  console.log("allCart", allCartItem);
-  console.log("mate", data);
+  // console.log("allCart", allCartItem);
+  // console.log("mate", data);
   const LeftContainer = styled(Box)`
     min-width: 40%;
     padding: 40px 0 0 80px;
@@ -25,11 +26,12 @@ export default function SingleMobileCard(data) {
     width: "100%",
   });
   const moveToCart = (data) => {
-    console.log(data);
-    allCartItem.push(data);
-    navigate("/cart");
+    console.log("car",data);
+   dispatch( addTocart(data));
+    // navigate("/cart");
   };
 
+ 
   return (
     <>
       <Header />

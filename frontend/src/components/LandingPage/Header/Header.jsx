@@ -21,7 +21,7 @@ import {
 const Header = () => {
   return (
     <div className="header">
- fp05_295_day_dummy
+ 
       <div className="header_logo">
       <Link to="/"><img src={logo} alt="logo"></img></Link>
         
@@ -33,18 +33,10 @@ const Header = () => {
       </div>
 
       <div className="header_login">
-        <Menu>
-          <MenuButton _hover={"curser:pointer "}>Log in</MenuButton>
-          <MenuList color={"black"} fontSize={"small"}>
-            <MenuItem>My Profile</MenuItem>
-            <MenuItem>YouKart Plus Zone</MenuItem>
-            <MenuItem>Orders</MenuItem>
-            <MenuItem>Whishlist</MenuItem>
-            <MenuItem>Rewards</MenuItem>
-            <MenuItem>Gift Cards</MenuItem>
-          </MenuList>
-        </Menu>
-        {/* <button>Log in</button> */}
+       
+       <Link to="/login">
+       <button>Log in</button>
+       </Link> 
       </div>
       <div className="header_admin">
         <Link to="/admin">

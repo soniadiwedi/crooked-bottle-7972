@@ -2,42 +2,44 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getAllCart, removeItemCart } from "../../Redux/CartReducer/cartAction";
+import { getAllCart, increment_decremtn_Cart_Item, removeItemCart, remove_Item_Cart } from "../../Redux/CartReducer/cartAction";
 import Header from "../../components/LandingPage/Header/Header";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
 const Cart = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const allCart = useSelector((store) => {
-    return store.CartReducer.cartItem;
-    // console.log(store);
-  });
-  console.log("allCart", allCart);
-  const [price, setPrice] = useState([]);
+  const [price, setPrice] = useState(0);
   const [delivery, setDelivery] = useState(40);
   const [total, setTotal] = useState(0);
 
-  let totalPrice = Number(0);
-  for (let i = 0; i < allCart.length; i++) {
-    totalPrice += Number(allCart[i].price);
-  }
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  let subtotal = Number(totalPrice) + Number(delivery);
+  const {cartItem} = useSelector((store) =>  store.CartReducer);
+ 
+  console.log("cart",cartItem);
+  // let price = Number(0);
+  // for (let i = 0; i < cartItem?.length; i++) {
+  //   price += Number(cartItem[i].price);
+  // }
+
+  // let subtotal = Number(price) + Number(delivery);
 
   useEffect(() => {
-    dispatch(getAllCart());
-    allCart.map((item) => {
-      setPrice(item.price);
-      setTotal(item.discountedPrice);
+    let ttl=0
+    cartItem?.forEach((item) => {
+     
+      ttl+=Number(item.price)*Number(item.quantity)
     });
-  }, []);
-
+    setPrice(ttl)
+  }, [cartItem]);
+console.log(price,total);
   const removeItemFromCart = (id) => {
-    dispatch(removeItemCart(id));
+    dispatch(remove_Item_Cart(id));
   };
+  const handleItemNumber=(id,val)=>{
+    dispatch(increment_decremtn_Cart_Item(id,val));
+  }
   const goToHomePage = () => {
     navigate("/");
   };
@@ -64,7 +66,7 @@ const Cart = () => {
     <>
       <Header />
       <Navbar />
-      {allCart.length === 0 ? (
+      {cartItem?.length === 0 ? (
         <div className="mx-auto col-8">
           <div className="card mt-5 mb-5">
             <div className="text-center mt-5 mb-5">
@@ -74,7 +76,7 @@ const Cart = () => {
                 onClick={() => goToHomePage()}
                 className="btn btn-warning mt-4"
               >
-                Go Homepage
+                Go Homepage 
               </button>
             </div>
           </div>
@@ -85,10 +87,10 @@ const Cart = () => {
             <div className="col-md-8 col-12">
               <div className="card p-3">
                 <div className="row">
-                  <h5>My Cart({allCart.length})</h5>
+                  <h5>My Cart({cartItem?.length})</h5>
                   <div className="col-12">
-                    {allCart &&
-                      allCart.slice(0, 5).map((el) => {
+                    {cartItem.length>0 &&
+                      cartItem?.map((el) => {
                         return (
                           <div key={el.id} className="card p-3 mt-2">
                             <div className="row">
@@ -108,26 +110,27 @@ const Cart = () => {
                             <div className="row mt-3">
                               <div className="col-md-3 col-12">
                                 <div className="input-group">
-                                  <input
-                                    type="button"
-                                    value="-"
+                                 <button
                                     className="button-minus"
                                     data-field="quantity"
-                                  />
+                                    onClick={()=>{handleItemNumber(el.id,-1)}}
+                                    >
+                                      -
+                                    </button>
                                   <input
                                     type="number"
                                     step="1"
                                     max=""
-                                    value="1"
+                                    value={el.quantity}
                                     name="quantity"
                                     className="quantity-field"
-                                  />
-                                  <input
-                                    type="button"
-                                    value="+"
+                                    
+                                    />
+                                  <button
+                                    onClick={()=>{handleItemNumber(el.id,1)}}
                                     className="button-plus"
                                     data-field="quantity"
-                                  />
+                                  >+</button>
                                 </div>
                               </div>
                               <div className="col-md-9 col-12">
@@ -137,6 +140,7 @@ const Cart = () => {
                                 <button
                                   className="btn btn-light w-25 fw-bold text-secondary"
                                   onClick={() => removeItemFromCart(el.id)}
+
                                 >
                                   Remove
                                 </button>
@@ -164,7 +168,7 @@ const Cart = () => {
                   <div className="col-6">
                     <p>Price </p>
                   </div>
-                  <div className="col-6 text-end">{totalPrice}</div>
+                  <div className="col-6 text-end">{price}</div>
                 </div>
                 <div className="row mb-3">
                   <div className="col-6">
@@ -184,7 +188,7 @@ const Cart = () => {
                     <b>Total Charges</b>
                   </div>
                   <div className="col-6 text-end">
-                    <b>{subtotal}</b>
+                    <b>{price+delivery}</b>
                   </div>
                 </div>
               </div>

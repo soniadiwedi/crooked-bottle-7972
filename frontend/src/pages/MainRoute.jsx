@@ -26,6 +26,9 @@ import FashionPage from "./Fashion/FashionPage";
 import FurniturePage from "./Furniture/FurniturePage";
 import GroceryPage from "./Grocery/GroceryPage";
 import Payment from "../pages/PaymentPage/Payment";
+import Login from "./New_Login_function/Login";
+import PrivateRoutes from "../components/PrivateRoutes";
+import Signup from "./New_Login_function/Signup";
 
 const MainRoute = () => {
   return (
@@ -40,20 +43,23 @@ const MainRoute = () => {
         <Route path="/Grocery-page" element={<GroceryPage />}></Route>
         <Route path="/Furniture-Page" element={<FurniturePage />}></Route>
 
-        <Route path="/single/:id" element={<SingleMobile />} />
+        <Route path="/single/:id" element={<PrivateRoutes><SingleMobile /></PrivateRoutes>} />
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/admin" element={<DashboardMain />} />
         <Route path="/product-list" element={<ProductList />} />
         <Route path="/add-product" element={<AdminAddProduct />}></Route>
         <Route path="/payment" element={<Payment />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
+
 
         {/* Vikash Route */}
-        <Route path="/user_name" element={<Username />}></Route>
+        {/* <Route path="/user_name" element={<Username />}></Route>
         
         <Route path="/register" element={<Register />}></Route>
         <Route path="/recovery" element={<Recovery />}></Route>
 
-        <Route path="/reset" element={<Reset />}></Route>
+        <Route path="/reset" element={<Reset />}></Route> */}
 
         {/* Private Route */}
         <Route path="/password" element={<Password />}></Route>
