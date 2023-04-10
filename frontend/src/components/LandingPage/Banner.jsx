@@ -8,6 +8,7 @@ import { styled } from "@mui/material";
 
 import "./Banner.css";
 
+
 const Image = styled("img")({
   width: "1000%",
   height: "300px",
@@ -33,6 +34,7 @@ const responsive = {
 const Banner = () => {
   return (
     <div>
+      
       <div>
         <Carousel
           responsive={responsive}

@@ -29,11 +29,11 @@ export const sortdataDes=()=>{
 export const getProductData= (dispatch) => {
   dispatch(getRequestMovie());
   axios
-    .get(`https://light-ant-sock.cyclic.app/products`)
+    .get(`http://localhost:3300/product/`)
     .then((res) => {
        console.log("redux",res.data);
-      dispatch(getSuccessMovie(res.data));
-      console.log(res.data)
+      dispatch(getSuccessMovie(res.data.data));
+      // console.log("redux",res.data.data)
     })
     .catch((e) => {
       dispatch(getFailureMovie());

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import logo from "../../../assets/logo.png";
 import SearchIcon from "@mui/icons-material/Search";
@@ -18,7 +18,10 @@ import {
   MenuDivider,
   Button,
 } from "@chakra-ui/react";
+
+
 const Header = () => {
+
   return (
     <div className="header">
  fp05_295_day_dummy
@@ -36,6 +39,8 @@ const Header = () => {
         <Menu>
           <MenuButton _hover={"curser:pointer "}>Log in</MenuButton>
           <MenuList color={"black"} fontSize={"small"}>
+            <MenuList>New customer? <span></span><Link to="/signup">Sign Up</Link></MenuList>
+           
             <MenuItem>My Profile</MenuItem>
             <MenuItem>YouKart Plus Zone</MenuItem>
             <MenuItem>Orders</MenuItem>
@@ -65,9 +70,12 @@ const Header = () => {
       </div>
       <div className="header_cart">
         <Link to="/cart">
-          <ShoppingCartIcon />
-          <p>cart</p>
+       <ShoppingCartIcon />  <span>Cart</span> 
+          
         </Link>
+      </div>
+      <div className="admin_page" >
+        <Link to="/admin">Admin</Link>
       </div>
     </div>
   );
