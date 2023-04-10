@@ -32,8 +32,8 @@ export const getProductData= (dispatch) => {
     .get(`http://localhost:8080/products`)
     .then((res) => {
        console.log("redux",res.data);
-      dispatch(getSuccessMovie(res.data));
-      console.log(res.data)
+      dispatch(getSuccessMovie(res.data.data));
+      // console.log("redux",res.data.data)
     })
     .catch((e) => {
       dispatch(getFailureMovie());

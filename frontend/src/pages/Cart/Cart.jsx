@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { getAllCart, increment_decremtn_Cart_Item, removeItemCart, remove_Item_Cart } from "../../Redux/CartReducer/cartAction";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../../components/LandingPage/Header/Header";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -62,6 +62,11 @@ console.log(price,total);
     //   });
   };
 
+
+
+  function IncDecproduct(val){
+console.log(val)
+  }
   return (
     <>
       <Header />
@@ -152,12 +157,14 @@ console.log(price,total);
                   </div>
                 </div>
                 <div className="col-12 text-end mt-3">
+                 <Link to="/deliverypage">
                   <button
                     className="btn btn-warning w-25 p-3"
                     onClick={() => buyNow()}
                   >
                     Place Order
                   </button>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import logo from "../../../assets/logo.png";
 import SearchIcon from "@mui/icons-material/Search";
@@ -18,7 +18,10 @@ import {
   MenuDivider,
   Button,
 } from "@chakra-ui/react";
+
+
 const Header = () => {
+
   return (
     <div className="header">
  
@@ -57,9 +60,12 @@ const Header = () => {
       </div>
       <div className="header_cart">
         <Link to="/cart">
-          <ShoppingCartIcon />
-          <p>cart</p>
+       <ShoppingCartIcon />  <span>Cart</span> 
+          
         </Link>
+      </div>
+      <div className="admin_page" >
+        <Link to="/admin">Admin</Link>
       </div>
     </div>
   );

@@ -21,7 +21,6 @@ import { getProductData } from "../Redux/ProductReducer/action";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import Header from "../components/LandingPage/Header/Header";
-
 import Footer from "../components/Footer";
 
 
