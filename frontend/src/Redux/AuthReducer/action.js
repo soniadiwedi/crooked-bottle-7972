@@ -19,7 +19,7 @@ export const login =(user)=> (dispatch) => {
   console.log("user",user);
   dispatch(loginRequest)
   return axios.post(`http://localhost:3300/user/login`,user).then((res)=>{
-    console.log("token",res.data.token)
+    
     dispatch(loginSuccess(res.data.token))
 
 

@@ -41,27 +41,12 @@ console.log(price,total);
   const buyNow = () => {
     console.log("payment");
     navigate("/payment");
-    // const paymentData = {
-    //   purpose: "Test payment",
-    //   amount: 10,
-    // };
-
-    // axios
-    //   .post("https://instamojo-test-1s1j.vercel.app/pay", paymentData)
-    //   .then((res) => {
-    //     console.log("res", res.data);
-    //     // window.location.href = res.data;
-    //   })
-    //   .catch((err) => {
-    //     console.log("payment error", err);
-    //   });
+ 
   };
 
 
 
-  function IncDecproduct(val){
-console.log(val)
-  }
+
   return (
     <>
       <Header />
@@ -113,6 +98,7 @@ console.log(val)
                                  <button
                                     className="button-minus"
                                     data-field="quantity"
+                                    disabled={el.quantity<=1}
                                     onClick={()=>{handleItemNumber(el.id,-1)}}
                                     >
                                       -

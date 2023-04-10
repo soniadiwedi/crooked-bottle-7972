@@ -14,7 +14,7 @@ app.use(express.json())
 
 
 app.use("/user",routes)
-app.use("/product",productRouter)
+// app.use("/product",productRouter)
 app.listen(process.env.port,async()=>{
     try{
         await connection
