@@ -15,13 +15,13 @@ app.use(express.json())
 
 app.use("/user",routes)
 // app.use("/product",productRouter)
-app.listen(process.env.port,async()=>{
+app.listen(process.env.PORT||3000,async()=>{
     try{
         await connection
         console.log("server connected to db");
     }catch(err){
         console.log(err);
     }
-    console.log(`server is running ${process.env.port}`);
+    console.log(`server is running ${process.env.PORT||3000}`);
 })
 
