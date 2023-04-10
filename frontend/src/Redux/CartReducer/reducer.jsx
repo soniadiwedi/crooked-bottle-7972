@@ -4,6 +4,7 @@ import {
   PRODUCT_CART_REQUEST,
   PRODUCT_REMOVE_FROM_CART,
   Increment_Item,
+  CART_ITEM_EMPTY,
 } from "./actionType";
 
 const initialState = {
@@ -34,6 +35,9 @@ export const reducer = (state = initialState, { type, payload }) => {
             return el;
           })
         ]}
+
+        case CART_ITEM_EMPTY:
+          return {...state,cartItem:[]}
       default:
       return state;
   }

@@ -1,9 +1,13 @@
 import "./Payment.css";
 import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { CartEmty } from "../../Redux/CartReducer/cartAction";
+import { useDispatch } from "react-redux";
 const Payment = () => {
+  const dispatch=useDispatch()
   const navigate = useNavigate();
   const goToHomePage = () => {
+    dispatch(CartEmty())
     navigate("/");
   };
   return (
