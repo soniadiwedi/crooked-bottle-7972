@@ -18,7 +18,7 @@ export const loginSuccess=(payload)=>{
 export const login =(user)=> (dispatch) => {
   console.log("user",user);
   dispatch(loginRequest)
-  return axios.post(`http://localhost:3300/user/login`,user).then((res)=>{
+  return axios.post(`https://worrisome-goat-sneakers.cyclic.app/user/login`,user).then((res)=>{
     
     dispatch(loginSuccess(res.data.token))
 
