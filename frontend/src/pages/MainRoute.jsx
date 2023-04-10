@@ -26,6 +26,7 @@ import FashionPage from "./Fashion/FashionPage";
 import FurniturePage from "./Furniture/FurniturePage";
 import GroceryPage from "./Grocery/GroceryPage";
 import Signup from "./New_Login_function/Signup";
+import { Search } from "./Search";
 import Login from "./New_Login_function/Login";
 
 import PrivatrRoutes from "../components/PrivateRoutes";
@@ -67,6 +68,7 @@ const MainRoute = () => {
         <Route path="/payment" element={<Payment />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/search" element={<Search/>}></Route>
 
 
         {/* Vikash Route */}

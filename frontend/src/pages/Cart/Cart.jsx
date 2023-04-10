@@ -17,7 +17,7 @@ const Cart = () => {
 
   const {cartItem} = useSelector((store) =>  store.CartReducer);
  
-  console.log("cart",cartItem);
+  // console.log("cart",cartItem);
 
 
   useEffect(() => {
@@ -38,7 +38,7 @@ console.log(price,total);
   const goToHomePage = () => {
     navigate("/");
   };
-  const buyNow = async () => {
+  const buyNow = () => {
     console.log("payment");
     navigate("/payment");
     // const paymentData = {

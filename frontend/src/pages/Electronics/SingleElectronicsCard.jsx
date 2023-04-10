@@ -11,8 +11,8 @@ export default function SingleFashionCard(data) {
   const allCartItem = useSelector((store) => {
     return store.CartReducer.cartItem;
   });
-  console.log("allCart", allCartItem);
-  console.log("mate", data);
+  // console.log("allCart", allCartItem);
+  // console.log("mate", data);
   const LeftContainer = styled(Box)`
     min-width: 40%;
     padding: 40px 0 0 80px;
@@ -24,7 +24,7 @@ export default function SingleFashionCard(data) {
     width: "100%",
   });
   const moveToCart = (data) => {
-    console.log(data);
+    // console.log(data);
     allCartItem.push(data);
     navigate("/cart");
   };

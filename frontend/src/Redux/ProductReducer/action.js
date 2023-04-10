@@ -40,6 +40,15 @@ export const getProductData= (dispatch) => {
     });
 };
 
+export const searchData = (search)=> (dispatch) => {
+  dispatch(getRequestMovie());
+  axios.get(`https://light-ant-sock.cyclic.app/products?q=${search}`).then(res=>{
+  dispatch(getSuccessMovie(res.data));
+  console.log(res.data);
+  }).catch(e=>{
+    dispatch(getFailureMovie());
+  })
+}
 
 export const sortAsc=()=>(dispatch)=>{
   console.log('sort ');
