@@ -18,12 +18,7 @@ const Cart = () => {
   const {cartItem} = useSelector((store) =>  store.CartReducer);
  
   console.log("cart",cartItem);
-  // let price = Number(0);
-  // for (let i = 0; i < cartItem?.length; i++) {
-  //   price += Number(cartItem[i].price);
-  // }
 
-  // let subtotal = Number(price) + Number(delivery);
 
   useEffect(() => {
     let ttl=0
@@ -157,14 +152,13 @@ console.log(val)
                   </div>
                 </div>
                 <div className="col-12 text-end mt-3">
-                 <Link to="/deliverypage">
+               
                   <button
                     className="btn btn-warning w-25 p-3"
                     onClick={() => buyNow()}
                   >
                     Place Order
                   </button>
-                  </Link>
                 </div>
               </div>
             </div>

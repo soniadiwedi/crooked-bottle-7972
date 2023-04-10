@@ -35,7 +35,7 @@ export default function SingleAppliances() {
     let _id=param.id
   console.log("id",_id);
     useEffect(() => {
-      axios.get(`http://localhost:3300/product/single/${_id}`)
+      axios.get(`https://light-ant-sock.cyclic.app/products/${_id}`)
         .then(response => {
           console.log("res",response.data.data);
           setData(response.data.data)

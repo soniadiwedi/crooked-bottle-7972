@@ -21,7 +21,7 @@ export default function SingleMobile() {
   const getsingledata = (id) => {
   
     axios
-      .get(`http://localhost:3300/product/single/${id}`)
+      .get(`https://light-ant-sock.cyclic.app/products/${id}`)
       .then((res) => {
         console.log(res);
         setdata(res.data);

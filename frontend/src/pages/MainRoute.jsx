@@ -27,14 +27,16 @@ import FurniturePage from "./Furniture/FurniturePage";
 import GroceryPage from "./Grocery/GroceryPage";
 import Signup from "./New_Login_function/Signup";
 import Login from "./New_Login_function/Login";
+
 import PrivatrRoutes from "../components/PrivateRoutes";
 import SingleAppliances from "./Appliances/SingleAppliances";
 
 
 import Payment from "../pages/PaymentPage/Payment";
-import Login from "./New_Login_function/Login";
 import PrivateRoutes from "../components/PrivateRoutes";
-import Signup from "./New_Login_function/Signup";
+
+
+
 
 const MainRoute = () => {
   return (
