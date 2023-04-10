@@ -66,9 +66,12 @@ const Header = () => {
       </div>
       <div className="header_cart">
         <Link to="/cart">
-          <ShoppingCartIcon />
-          <p>cart</p>
+       <ShoppingCartIcon />  <span>Cart</span> 
+          
         </Link>
+      </div>
+      <div className="admin_page" >
+        <Link to="/admin">Admin</Link>
       </div>
     </div>
   );

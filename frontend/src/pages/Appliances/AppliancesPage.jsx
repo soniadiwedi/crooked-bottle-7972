@@ -14,11 +14,11 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
 export default function AppliancesPage() {
-  const data = useSelector((store) => store.productReducer.products);
-  console.log(data);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const Cat = searchParams.getAll("category");
-  const dispatch = useDispatch();
+  const data=useSelector((store)=>store.productReducer.products)
+   console.log("dataaa",data);
+    const [searchParams,setSearchParams]= useSearchParams();
+    const Cat=(searchParams.getAll('category'))
+    const dispatch=useDispatch()
 
   useEffect(() => {
     dispatch(getProductData);
@@ -29,6 +29,27 @@ export default function AppliancesPage() {
     background: #f2f2f2;
   `;
   return (
+  
+    // <div className="row">
+    //   <div className="col-md-3 col-12">
+    //     {" "}
+    //     <Sidebar />
+    //   </div>
+    //   <div className="col-md-9 col-12">
+    //     <div className="row">
+    //       <div className="col-12">
+    //         <UpperBar />
+    //       </div>
+    //       <Component className="row">
+    //           {
+    //           data.length>0 &&  data.map((el)=>{
+    //               return <div key={el.id} className="col-md-3 col-12">
+    //     <AppliancesCard {...el}/>
+    //               </div> 
+    //             })
+    //           }
+
+    //       </Component>
     <>
       <Header />
       <Navbar />
@@ -79,6 +100,6 @@ export default function AppliancesPage() {
       <Footer />
     </>
 
-    // </div>
+    
   );
 }

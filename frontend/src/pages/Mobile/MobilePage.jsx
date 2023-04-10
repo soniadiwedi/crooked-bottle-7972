@@ -33,6 +33,21 @@ export default function MobilePage() {
         </div>
         <div className="col-md-9 col-12">
           <div className="row">
+          {
+          data.length>0 && data.filter((el)=>{
+            if(Cat.length>0){
+                return Cat.includes(el.category);
+            }else{
+                return el;
+            }
+        }).map((el)=>{
+            return <div key={el.id} className="col-md-3 col-12">
+           <MobileCard {...el}/>
+           </div>
+          
+          })
+          }
+
             <div className="col-12">
               <UpperBar {...data} />
             </div>

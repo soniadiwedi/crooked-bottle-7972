@@ -25,17 +25,33 @@ import ElectronicsPage from "./Electronics/ElectronicsPage";
 import FashionPage from "./Fashion/FashionPage";
 import FurniturePage from "./Furniture/FurniturePage";
 import GroceryPage from "./Grocery/GroceryPage";
-import Payment from "../pages/PaymentPage/Payment";
-import Login from "./New_Login_function/Login";
-import PrivateRoutes from "../components/PrivateRoutes";
 import Signup from "./New_Login_function/Signup";
 import { Search } from "./Search";
+import Login from "./New_Login_function/Login";
+
+import PrivatrRoutes from "../components/PrivateRoutes";
+import SingleAppliances from "./Appliances/SingleAppliances";
+
+
+import Payment from "../pages/PaymentPage/Payment";
+import PrivateRoutes from "../components/PrivateRoutes";
+
+
+
 
 const MainRoute = () => {
   return (
     <div>
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
+        {/* <Route path="/mobile-page" element={<MobilePage />}></Route> */}
+        {/* <Route path="/appliances-page" element={ <AppliancesPage /> }></Route> */}
+        {/* <Route path="/electronics-page" element={ <ElectronicsPage /> }></Route>
+        <Route path="/Fashion-Page" element={ <FashionPage /> }></Route>
+        <Route path="/Grocery-page" element={ <GroceryPage/> }></Route>
+        <Route path="/Furniture-Page" element={ <FurniturePage /> }></Route>
+         */}
+        <Route path="/product/single/:id" element={<SingleAppliances />} />
         <Route path="/mobile-page" element={<MobilePage />}></Route>
         {/* <Route path="/mobile-page" element={<AuthorizeUser><MobilePage /></AuthorizeUser>}></Route> */}
         <Route path="/appliances-page" element={<AppliancesPage />}></Route>
