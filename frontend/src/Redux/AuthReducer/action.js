@@ -16,11 +16,12 @@ export const loginSuccess=(payload)=>{
 
 
 export const login =(user)=> (dispatch) => {
-  
+  console.log("user",user);
   dispatch(loginRequest)
-  return axios.post(`https://reqres.in/api/login`,user).then((res)=>{
+  return axios.post(`http://localhost:3300/user/login`,user).then((res)=>{
     console.log("token",res.data.token)
     dispatch(loginSuccess(res.data.token))
+
 
   }).catch((e)=>{
     dispatch(loginFailure())

@@ -2,6 +2,8 @@ import {
   PRODUCT_CART_SUCCESS,
   PRODUCT_CART_FAILURE,
   PRODUCT_CART_REQUEST,
+  PRODUCT_REMOVE_FROM_CART,
+  Increment_Item,
 } from "./actionType";
 
 const initialState = {
@@ -20,8 +22,19 @@ export const reducer = (state = initialState, { type, payload }) => {
     case PRODUCT_CART_FAILURE:
       return { ...state, isLoading: false, isError: true };
     case PRODUCT_CART_SUCCESS:
-      return { ...state, isLoading: false, carts: payload };
-    default:
+      return { ...state, isLoading: false, cartItem:[...state.cartItem,{...payload,quantity:1}] };
+    case PRODUCT_REMOVE_FROM_CART:
+      return {...state,cartItem:[...state.cartItem.filter((el)=>el.id!==payload)]}
+      case Increment_Item:
+        return {...state,cartItem:[
+          ...state.cartItem.map((el)=>{
+            if(el.id==payload.id){
+              el.quantity=el.quantity+payload.val;
+            }
+            return el;
+          })
+        ]}
+      default:
       return state;
   }
 };

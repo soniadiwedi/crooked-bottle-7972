@@ -6,16 +6,19 @@ import {
   Input,
   Checkbox,
   Stack,
-  Link,
   Button,
   Heading,
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
-import { login } from "../../Redux/AuthReducer/action";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
 import { useState } from "react";
+import { login } from "../../Redux/AuthReducer/action";
+import Footer from "../../components/Footer";
+import Header from "../Admin/Header";
+import Navbar from "../../components/Navbar";
 
 export default function Login() {
   const [data, setData] = useState({
@@ -27,32 +30,49 @@ export default function Login() {
   const onChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
-  const postData = (e) => {
-    e.preventDefault();
-    fetch("http://localhost:3300/user/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.token) {
-          setMsg(res.token);
-          localStorage.setItem("token", res.token);
-          console.log("token",res.token);
-        } else {
-          setMsg(res.msg);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
+  const dispatch=useDispatch()
+  const navigate=useNavigate()
+  const location =useLocation()
+  
+  
+  // const postData = (e) => {
+  //   e.preventDefault();
+  //   fetch("http://localhost:3300/user/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(data),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       if (res.token) {
+  //         setMsg(res.token);
+  //         localStorage.setItem("token", res.token);
+  //         console.log("token",res.token);
+  //       } else {
+  //         setMsg(res.msg);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     })
+      
+  // };
+
+  const handleLogin=()=>{
+    console.log("navigate");
+    dispatch(login(data)).then(()=>{
+      navigate(location.state)
+    })
+  }
   
   return (
+    <>
+     
+      <Navbar />
+  
     <Flex
       minH={"100vh"}
       align={"center"}
@@ -90,7 +110,7 @@ export default function Login() {
                 <Checkbox>Remember me</Checkbox>
               </Stack>
               <Button
-                onClick={postData}
+                onClick={handleLogin}
                 bg={"blue.400"}
                 color={"white"}
                 _hover={{
@@ -99,10 +119,14 @@ export default function Login() {
               >
                 Log In
               </Button>
+              <Link to="/signup">Register Here</Link>
             </Stack>
           </Stack>
         </Box>
       </Stack>
     </Flex>
+      <Footer/>
+    </>
   );
+  
 }
