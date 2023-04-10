@@ -26,9 +26,9 @@ export default function SingleMobileCard(data) {
     width: "100%",
   });
   const moveToCart = (data) => {
-    console.log("car",data);
+    // console.log("car",data);
    dispatch( addTocart(data));
-    // navigate("/cart");
+     navigate("/cart");
   };
 
  

@@ -29,7 +29,7 @@ export const sortdataDes=()=>{
 export const getProductData= (dispatch) => {
   dispatch(getRequestMovie());
   axios
-    .get(`http://localhost:8080/products`)
+    .get(`https://light-ant-sock.cyclic.app/products`)
     .then((res) => {
        console.log("redux",res.data);
       dispatch(getSuccessMovie(res.data));
@@ -40,6 +40,15 @@ export const getProductData= (dispatch) => {
     });
 };
 
+export const searchData = (search)=> (dispatch) => {
+  dispatch(getRequestMovie());
+  axios.get(`https://light-ant-sock.cyclic.app/products?q=${search}`).then(res=>{
+  dispatch(getSuccessMovie(res.data));
+  console.log(res.data);
+  }).catch(e=>{
+    dispatch(getFailureMovie());
+  })
+}
 
 export const sortAsc=()=>(dispatch)=>{
   console.log('sort ');

@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import logo from "../../../assets/logo.png";
 import SearchIcon from "@mui/icons-material/Search";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import {
   Menu,
@@ -18,7 +18,16 @@ import {
   MenuDivider,
   Button,
 } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { searchData } from "../../../Redux/ProductReducer/action";
 const Header = () => {
+  const [search,setsearch]=useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const handleSearch = () => {
+    dispatch(searchData(search));
+    navigate("/search");
+  }
   return (
     <div className="header">
  
@@ -28,8 +37,8 @@ const Header = () => {
       </div>
 
       <div className="header_search">
-        <input type="text" placeholder="Search for products, brands and more" />
-        <SearchIcon />
+        <input type="search" onChange={(e)=>setsearch(e.target.value)} placeholder="Search for products, brands and more" />
+        <SearchIcon onClick={handleSearch} />
       </div>
 
       <div className="header_login">

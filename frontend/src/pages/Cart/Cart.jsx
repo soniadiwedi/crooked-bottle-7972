@@ -17,13 +17,8 @@ const Cart = () => {
 
   const {cartItem} = useSelector((store) =>  store.CartReducer);
  
-  console.log("cart",cartItem);
-  // let price = Number(0);
-  // for (let i = 0; i < cartItem?.length; i++) {
-  //   price += Number(cartItem[i].price);
-  // }
+  // console.log("cart",cartItem);
 
-  // let subtotal = Number(price) + Number(delivery);
 
   useEffect(() => {
     let ttl=0
@@ -43,7 +38,7 @@ console.log(price,total);
   const goToHomePage = () => {
     navigate("/");
   };
-  const buyNow = async () => {
+  const buyNow = () => {
     console.log("payment");
     navigate("/payment");
     // const paymentData = {

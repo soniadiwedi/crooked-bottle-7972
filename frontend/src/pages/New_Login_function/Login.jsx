@@ -18,7 +18,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { login } from "../../Redux/AuthReducer/action";
 import Footer from "../../components/Footer";
-import Header from "../Admin/Header";
+import Header from "../../components/LandingPage/Header/Header";
 import Navbar from "../../components/Navbar";
 
 export default function Login() {
@@ -72,7 +72,7 @@ export default function Login() {
   return (
     <>
      
-      <Navbar />
+      <Header/>
   
     <Flex
       minH={"100vh"}

@@ -29,6 +29,7 @@ import Payment from "../pages/PaymentPage/Payment";
 import Login from "./New_Login_function/Login";
 import PrivateRoutes from "../components/PrivateRoutes";
 import Signup from "./New_Login_function/Signup";
+import { Search } from "./Search";
 
 const MainRoute = () => {
   return (
@@ -51,6 +52,7 @@ const MainRoute = () => {
         <Route path="/payment" element={<Payment />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/search" element={<Search/>}></Route>
 
 
         {/* Vikash Route */}

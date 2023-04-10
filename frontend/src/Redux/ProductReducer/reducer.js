@@ -15,7 +15,7 @@ const inti = {
 export const reducer = (state = inti, { type, payload }) => {
   switch (type) {
     case GET_DATA_REQUEST:
-      return { ...state, isLoading: true };
+      return { ...state, isLoading: true, products: [] };
     case GET_DATA_SUCCESS:
       return { ...state, isLoading: false, products: payload };
     case GET_DATA_FAILURE:
