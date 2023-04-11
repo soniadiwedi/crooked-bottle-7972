@@ -75,7 +75,7 @@ const HomePage = () => {
         <Slides products={BestSeller} />
       </Component>
 
-      <Footer />
+     
 
     </div>
   );
