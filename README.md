@@ -59,8 +59,8 @@ Admin Page
 
 ## 🤝 *_Collaborators_*
 # 👨🏻 *Vikash Lal* `Team Leader`
-# 🧑🏻‍ *Rohit Kumar yadav*
 # 🧒🏻 *Sonia Diwedi*
+# 🧑🏻‍ *Rohit Kumar yadav*
 # 🧑🏻 *Nitin Gautam*
 # 🧒🏻 *Subhendu Das*
 We welcome contributions from the community! If you find a bug or have a feature request, please submit an issue. If you would like to contribute code, please submit a pull request.
