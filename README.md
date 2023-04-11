@@ -21,6 +21,30 @@
 
 <hr/>
 
+
+Home Page
+![image](https://user-images.githubusercontent.com/112754761/231129260-e85342d9-f173-453b-8977-c0047dc7b76d.png)
+
+
+Product Page
+![image](https://user-images.githubusercontent.com/112754761/231129760-2b823814-fcf7-4e9c-8d99-67574efe1413.png)
+
+
+Single Page
+![image](https://user-images.githubusercontent.com/112754761/231130319-b52a26e3-de9d-4f22-8fc3-b7a22c92b1be.png)
+
+![image](https://user-images.githubusercontent.com/112754761/231130469-fb4a98a1-625f-4d15-a054-f3fc90c716c0.png)
+
+Payment Page
+![image](https://user-images.githubusercontent.com/112754761/231130578-221395dc-eb8f-444a-86a5-6d6971b58950.png)
+
+SigIn Page
+![image](https://user-images.githubusercontent.com/112754761/231131005-f3e1ed93-a52b-469b-8edc-4c82e6514268.png)
+
+
+Login Page
+![image](https://user-images.githubusercontent.com/112754761/231130865-a37a6494-49e1-411f-9f2d-f04da1dfd658.png)
+
 ## Tool Used
 
 - ### **Frontend**
@@ -34,8 +58,5 @@
 # 🧒🏻 *Sonia Diwedi*
 # 🧑🏻 *Nitin Gautam*
 # 🧒🏻 *Subhendu Das*
-
-
-
 We welcome contributions from the community! If you find a bug or have a feature request, please submit an issue. If you would like to contribute code, please submit a pull request.
 
