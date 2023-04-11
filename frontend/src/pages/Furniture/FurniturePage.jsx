@@ -54,23 +54,12 @@ export default function FurniturePage() {
                     );
                   })}
 
-              {/* {data.length > 0 &&
-              data?.map((el, i) => {
-                if (i < 15) {
-                  return (
-                    <div key={el.id} className="col-md-3 col-12">
-                      <MobileCard {...el} />
-                    </div>
-                  );
-                } else {
-                  return false;
-                }
-              })} */}
+           
             </div>
           </div>
         </div>
       </div>
-      <Footer />
+    
     </>
 
     // </div>

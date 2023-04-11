@@ -8,9 +8,10 @@ import { styled } from "@mui/material";
 
 const Component = styled(Box)`
   background: #f2f2f2;
-`;
-export default function SingleMobile() {
-  const [data, setdata] = useState([]);
+  `;
+  export default function SingleMobile() {
+    const [data, setdata] = useState([]);
+    const search = useSelector(store=>store.productReducer);
   const { isloading, product } = useSelector((store) => {
     return {
       isloading: store.productReducer.isLoading,
@@ -34,8 +35,18 @@ export default function SingleMobile() {
   useEffect(() => {
     getsingledata(params.id);
   }, [params.id]);
- console.log("duu",data);
-
+ 
+   
+  if(search.isLoading){
+      return (
+          <div className="loading-indicator" >Loading...</div>
+      )
+  }
+  if(search.isError){
+      return (
+          <p>Something went wrong</p>
+      )
+  }
   return (
     <Box>
       {

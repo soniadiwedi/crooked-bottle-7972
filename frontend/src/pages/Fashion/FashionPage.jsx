@@ -69,7 +69,7 @@ export default function FashionPage() {
           </div>
         </div>
       </div>
-      <Footer />
+    
     </>
 
     // </div>

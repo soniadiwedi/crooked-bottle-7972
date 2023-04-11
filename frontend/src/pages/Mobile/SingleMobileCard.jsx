@@ -7,14 +7,25 @@ import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import Header from "../../components/LandingPage/Header/Header";
 import { addTocart } from "../../Redux/CartReducer/cartAction";
+import "../search/Search.css"
 export default function SingleMobileCard(data) {
   const navigate = useNavigate();
   const dispatch= useDispatch()
   const allCartItem = useSelector((store) => {
     return store.CartReducer.cartItem;
   });
-  // console.log("allCart", allCartItem);
-  // console.log("mate", data);
+  const search = useSelector(store=>store.productReducer);
+   
+  if(search.isLoading){
+      return (
+          <div className="loading-indicator" >Loading...</div>
+      )
+  }
+  if(search.isError){
+      return (
+          <p>Something went wrong</p>
+      )
+  }
   const LeftContainer = styled(Box)`
     min-width: 40%;
     padding: 40px 0 0 80px;
@@ -158,7 +169,7 @@ export default function SingleMobileCard(data) {
           </div>
         </div>
       </div>
-      <Footer />
+   
     </>
   );
 }

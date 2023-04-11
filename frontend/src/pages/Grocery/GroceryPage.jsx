@@ -10,18 +10,29 @@ import GroceryCard from "./GroceryCard";
 import Header from "../../components/LandingPage/Header/Header";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-
+import "../search/Search.css"
 export default function GroceryPage() {
+  const search = useSelector(store=>store.productReducer);
   const data = useSelector((store) => store.productReducer.products);
   console.log(data);
   const [searchParams, setSearchParams] = useSearchParams();
   const Cat = searchParams.getAll("category");
   const dispatch = useDispatch();
-
+   
+ 
   useEffect(() => {
     dispatch(getProductData);
   }, []);
-
+  if(search.isLoading){
+    return (
+        <div className="loading-indicator" >Loading...</div>
+    )
+}
+if(search.isError){
+    return (
+        <p>Something went wrong</p>
+    )
+}
   return (
     <>
       <Header />
@@ -54,23 +65,12 @@ export default function GroceryPage() {
                     );
                   })}
 
-              {/* {data.length > 0 &&
-              data?.map((el, i) => {
-                if (i < 15) {
-                  return (
-                    <div key={el.id} className="col-md-3 col-12">
-                      <MobileCard {...el} />
-                    </div>
-                  );
-                } else {
-                  return false;
-                }
-              })} */}
+             
             </div>
           </div>
         </div>
       </div>
-      <Footer />
+  
     </>
 
     // </div>

@@ -70,7 +70,7 @@ export default function ElectronicsPage() {
           </div>
         </div>
       </div>
-      <Footer />
+    
     </>
 
     // </div>
