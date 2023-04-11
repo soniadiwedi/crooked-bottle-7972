@@ -183,7 +183,7 @@ console.log(price,total);
           </div>
         </div>
       )}
-      <Footer />
+      
     </>
   );
 };

@@ -14,13 +14,14 @@ import {
 } from "@chakra-ui/react";
 // import { AddIcon } from "@chakra-ui/icons";
 import { NavLink, Link } from "react-router-dom";
-
+import "../search/Search.css"
 import "../Mobile/MobilePage.css";
+import { useSelector } from "react-redux";
 
 export default function AppliancesCard({
   _id,
   url,
-  detailUrl,
+  thumbnail,
   title,
   description,
   price,
@@ -30,27 +31,38 @@ export default function AppliancesCard({
  id,
 }) {
 
-  console.log("id",_id);
+  const search = useSelector(store=>store.productReducer);
+   
+  if(search.isLoading){
+      return (
+          <div className="loading-indicator" >Loading...</div>
+      )
+  }
+  if(search.isError){
+      return (
+          <p>Something went wrong</p>
+      )
+  }
 
   return (
     <>
-      <div key={id + 1} className="mt-3">
+     <div key={id + 1} className="mt-3">
         <Card maxW="sm" boxShadow="2xl" rounded="lg">
-          <NavLink to={`/product/single/${_id}`}>
+          <NavLink to={`/single/${id}`}>
             <CardBody>
               <Center>
                 <Image
                   boxSize="200px"
-                  src={url}
-                  alt={url}
+                  src={thumbnail}
+                  alt={thumbnail}
                   borderRadius="lg"
                 />
               </Center>
               <Stack mt="0.5rem" spacing="3">
-                <Heading size="md">{title.shortTitle}</Heading>
+                <Heading size="md">{title}</Heading>
                 <Text>{description.split("").splice(0, 25)}</Text>
                 <Text color="blue.600" fontSize="2xl">
-                  ₹{price.mrp}
+                  ₹{price}
                 </Text>
                 <span>Free delivery</span>
               </Stack>

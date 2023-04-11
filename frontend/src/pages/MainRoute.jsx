@@ -26,7 +26,7 @@ import FashionPage from "./Fashion/FashionPage";
 import FurniturePage from "./Furniture/FurniturePage";
 import GroceryPage from "./Grocery/GroceryPage";
 import Signup from "./New_Login_function/Signup";
-import { Search } from "./Search";
+
 import Login from "./New_Login_function/Login";
 
 import PrivatrRoutes from "../components/PrivateRoutes";
@@ -35,6 +35,7 @@ import SingleAppliances from "./Appliances/SingleAppliances";
 
 import Payment from "../pages/PaymentPage/Payment";
 import PrivateRoutes from "../components/PrivateRoutes";
+import { Search } from "./search/Search";
 
 
 

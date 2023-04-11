@@ -14,8 +14,9 @@ import {
 } from "@chakra-ui/react";
 // import { AddIcon } from "@chakra-ui/icons";
 import { NavLink, Link } from "react-router-dom";
-
+import "../search/Search.css"
 import "../Mobile/MobilePage.css";
+import { useSelector } from "react-redux";
 
 export default function MobileCard({
   id,
@@ -27,6 +28,18 @@ export default function MobileCard({
   category,
   thumbnail,
 }) {
+  const search = useSelector(store=>store.productReducer);
+   
+    if(search.isLoading){
+        return (
+            <div className="loading-indicator" >Loading...</div>
+        )
+    }
+    if(search.isError){
+        return (
+            <p>Something went wrong</p>
+        )
+    }
   return (
     <>
       <div key={id + 1} className="mt-3">
