@@ -39,7 +39,7 @@ import {
     const postData = (e) => {
       e.preventDefault();
      
-      fetch("https://worrisome-goat-sneakers.cyclic.app/user/signup", {
+      fetch("https://crooked-bottle.onrender.com/user/signup/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
