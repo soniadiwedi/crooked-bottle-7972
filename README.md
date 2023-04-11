@@ -45,6 +45,11 @@ SigIn Page
 Login Page
 ![image](https://user-images.githubusercontent.com/112754761/231130865-a37a6494-49e1-411f-9f2d-f04da1dfd658.png)
 
+
+Admin Page
+![image](https://user-images.githubusercontent.com/112754761/231153649-24ed0d9f-9f91-44c1-ad94-e0613074dd23.png)
+
+
 ## Tool Used
 
 - ### **Frontend**
