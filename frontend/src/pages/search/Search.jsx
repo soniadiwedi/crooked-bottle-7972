@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux"
 import "./Search.css"
 import Header from "../../components/LandingPage/Header/Header";
+import { Link, NavLink } from "react-router-dom";
 
 export const Search = () => {
     const search = useSelector(store=>store.productReducer);
@@ -17,7 +18,7 @@ export const Search = () => {
     }
 
     //////////////////////////////////////////////////////
-    
+
     return (
         <div>
             <Header/>
@@ -43,7 +44,9 @@ export const Search = () => {
          
         </div>
         <div className="product-description">{el.description}</div>
-        <button className="buy-button">Buy Now</button>
+        <NavLink to={`/single/${el.id}`}>
+        <button  className="buy-button" >Know More</button>
+        </NavLink>
       </div>
     </div>
                        

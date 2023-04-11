@@ -70,9 +70,7 @@ const Header = () => {
           
         </Link>
       </div>
-      <div className="admin_page" >
-        <Link to="/admin">Admin</Link>
-      </div>
+     
     </div>
   );
 };

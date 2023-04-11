@@ -62,7 +62,7 @@ const MainRoute = () => {
         <Route path="/Furniture-Page" element={<FurniturePage />}></Route>
 
         <Route path="/single/:id" element={<PrivateRoutes><SingleMobile /></PrivateRoutes>} />
-        <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/cart" element={<PrivateRoutes><Cart /></PrivateRoutes>}></Route>
         <Route path="/admin" element={<DashboardMain />} />
         <Route path="/product-list" element={<ProductList />} />
         <Route path="/add-product" element={<AdminAddProduct />}></Route>

@@ -16,7 +16,8 @@ import {
 import { NavLink, Link } from "react-router-dom";
 
 import "../Mobile/MobilePage.css";
-
+import { useSelector } from "react-redux";
+import "../search/Search.css"
 export default function ElectronicsCard({
   id,
   title,
@@ -27,6 +28,20 @@ export default function ElectronicsCard({
   category,
   thumbnail,
 }) {
+
+  const search = useSelector(store=>store.productReducer);
+   
+  if(search.isLoading){
+      return (
+          <div className="loading-indicator" >Loading...</div>
+      )
+  }
+  if(search.isError){
+      return (
+          <p>Something went wrong</p>
+      )
+  }
+
   return (
     <>
       <div key={id + 1} className="mt-3">
